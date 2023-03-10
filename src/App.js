@@ -32,9 +32,9 @@ const App = () => {
   }
 
   return (
-    <div className='flex flex-col h-[100vh] p-12 text-slate-500'>
+    <div className='flex flex-col h-[100vh] sm:p-12 p-4 text-slate-500'>
       <SearchBar search={searchPokemon} />
-      <div className='flex gap-10'>
+      <div className='md:flex gap-10'>
         {pokemon !== null && <PokemonDetails pokemonResult={pokemon} addHandler={addToPokedex} />}
         <Pokedex pokedex={pokedex} removePokemon={removePokemon} setPokemon={setPokemon}/>
       </div>

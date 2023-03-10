@@ -9,7 +9,7 @@ const PokemonDetails = ({ pokemonResult, addHandler }) => {
     }, [pokemonResult])
 
     return (
-        <div>
+        <div className='sm:w-[50%]'>
             <div className='mt-6'>
                 <h1 className='text-2xl mb-4 font-bold'>Ecco i risultati per {pokemonResult.name.toUpperCase()}</h1>
                 <div className='flex gap-10 border-b border-slate-200 m-b pb-6'>
@@ -17,12 +17,12 @@ const PokemonDetails = ({ pokemonResult, addHandler }) => {
                     <p>Peso: {pokemonResult.weight}</p>
                     <p>Altezza: {pokemonResult.height}</p>
                 </div>
-                <div className='flex gap-20 pt-10'>
-                    <div className='flex w-80'>
-                        <img src={img} alt="pokemon" />
-                        <div className='flex flex-col justify-center gap-1'>
-                            <button className='flex items-center justify-center bg-purple-500 rounded-md text-white text-sm uppercase p-2' onClick={() => setImg(pokemonResult.sprites.front_default)}>default</button>
-                            <button className='flex items-center justify-center bg-purple-500 rounded-md text-white text-sm uppercase p-2' onClick={() => setImg(pokemonResult.sprites.front_shiny)} > shiny</button>
+                <div className='flex gap-20 sm:pt-10'>
+                    <div className='sm:flex w-80'>
+                        <img className='w-full' src={img} alt="pokemon" />
+                        <div className='flex sm:flex-col items-center justify-center gap-1'>
+                            <button className='flex items-center justify-center w-20 bg-purple-500 rounded-md text-white text-sm uppercase p-2' onClick={() => setImg(pokemonResult.sprites.front_default)}>default</button>
+                            <button className='flex items-center justify-center w-20 bg-purple-500 rounded-md text-white text-sm uppercase p-2' onClick={() => setImg(pokemonResult.sprites.front_shiny)} > shiny</button>
                         </div>
                     </div>
                     <div>

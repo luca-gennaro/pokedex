@@ -3,7 +3,7 @@ import React from 'react'
 const Pokedex = ({pokedex, removePokemon, setPokemon}) => {
 
   return (
-    <div className='flex flex-col p-4 justify-center- items-center'>
+    <div className='flex flex-col p-4 justify-center- items-center md:border-l border-slate-200'>
       <h2 className='text-2xl mb-4 font-bold text-center'>Il tuo Pokedex:</h2>
       {pokedex.length === 0 && <h1>Il tuo Pokedex è vuoto</h1>}
       <div className='flex gap-2 flex-wrap'>
