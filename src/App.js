@@ -7,10 +7,24 @@ import { getPokemon } from './utils/api'
 const App = () => {
 
   const [pokemon, setPokemon] = useState(null)
+  const [pokedex, setPokedex] = useState([])
 
-  useEffect(()=>{
+  useEffect(() => {
     searchPokemon("charmander")
   }, [])
+
+  const addToPokedex = () => {
+    if(pokedex.includes(pokemon)){
+      alert("Questo Pokemon è già presente nel tuo Pokedex")
+      return
+    }
+    setPokedex([...pokedex, pokemon])
+  }
+
+  const removePokemon = (id) => {
+    const newPokedex = pokedex.filter(item => item.id !== id)
+    setPokedex(newPokedex)
+  }
 
   const searchPokemon = async (pokemonName) => {
     const pokemonResult = await getPokemon(pokemonName)
@@ -19,9 +33,11 @@ const App = () => {
 
   return (
     <div className='flex flex-col h-[100vh] p-12 text-slate-500'>
-      <SearchBar search={searchPokemon}/>
-      {pokemon !== null && <PokemonDetails pokemonResult={pokemon}/>}
-      <Pokedex />
+      <SearchBar search={searchPokemon} />
+      <div className='flex gap-10'>
+        {pokemon !== null && <PokemonDetails pokemonResult={pokemon} addHandler={addToPokedex} />}
+        <Pokedex pokedex={pokedex} removePokemon={removePokemon} setPokemon={setPokemon}/>
+      </div>
     </div>
   )
 }
